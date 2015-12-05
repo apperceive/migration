@@ -1,16 +1,14 @@
 <?php
 
+/* 
+ * Drush script.
+ * Verify user picures, create missing file id's (fid) used in Drupal 7 picture field.
+ * Find and report orphan images with no (active) user.
+ * Useful for D6 -> D7 migration cleanup.
+ *
+ */ 
+
   $debug = false;
-  
-  /*
-  // don't do this, check for valid data instead - it appears that none of the 
-  // clear out all user pictures values (fids)
-  // old school: $q = db_query("UPDATE users SET picture = ''");
-  if (!$debug)
-    db_update('users')->fields(array('picture' => ''))->execute();
-  */
-  
-  
   $current = getcwd ();
   $pos = strpos($current, "/sites/");
   $has_sites_files = file_exists('sites/default/files');
